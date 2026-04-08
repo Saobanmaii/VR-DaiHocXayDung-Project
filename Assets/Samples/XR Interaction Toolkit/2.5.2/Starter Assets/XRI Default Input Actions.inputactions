@@ -852,6 +852,17 @@
                 },
                 {
                     "name": "",
+                    "id": "7b533614-e4d9-42eb-b18b-f433622b6094",
+                    "path": "<XRSimulatedController>{LeftHand}/primaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Activate Value",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "b34c79c1-ab5e-4851-87ac-abc43705eae0",
                     "path": "<XRController>{LeftHand}/{TriggerButton}",
                     "interactions": "",
@@ -1642,6 +1653,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Generic XR Controller",
+                    "action": "Activate Value",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cc00f86f-ca42-4259-a95b-cf6274148351",
+                    "path": "<XRSimulatedController>{RightHand}/primaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
                     "action": "Activate Value",
                     "isComposite": false,
                     "isPartOfComposite": false

@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 1357175342904818626}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 188899874238978042}
   - component: {fileID: 2060508381459233459}
   - component: {fileID: 7783816903531315836}
+  - component: {fileID: 5476893963598440341}
   m_Layer: 0
   m_Name: XR Rig
   m_TagString: Untagged
@@ -146,7 +147,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4075790309493413374}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.000000014901161}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0.16, y: 1.42, z: 25.469}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -170,7 +171,7 @@ MonoBehaviour:
   m_OriginBaseGameObject: {fileID: 4075790309493413374}
   m_CameraFloorOffsetObject: {fileID: 1357175342904818626}
   m_RequestedTrackingOriginMode: 2
-  m_CameraYOffset: 1.1176
+  m_CameraYOffset: 1.6
 --- !u!114 &6532662826976273253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,6 +288,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ActionAssets: []
+--- !u!114 &5476893963598440341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4075790309493413374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01f69dc1cb084aa42b2f2f8cd87bc770, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_System: {fileID: 6532662826976273253}
+  m_DelayTime: 0
 --- !u!1 &4443565570930771010
 GameObject:
   m_ObjectHideFlags: 0
@@ -583,7 +598,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 2
+    m_Bits: 4294967295
   m_AttachTransform: {fileID: 0}
   m_KeepSelectedTargetValid: 1
   m_DisableVisualsWhenBlockedInGroup: 1
@@ -1013,7 +1028,7 @@ MonoBehaviour:
   m_UpdateTrackingType: 0
   m_EnableInputTracking: 1
   m_EnableInputActions: 1
-  m_ModelPrefab: {fileID: -8679921383154817045, guid: 0a581c01cd501034ba43f074a1ef6dc2,
+  m_ModelPrefab: {fileID: 2012169004411738536, guid: b9cba4edccb17754c940e9692f0884a7,
     type: 3}
   m_ModelParent: {fileID: 0}
   m_Model: {fileID: 0}
@@ -1709,7 +1724,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 2
+    m_Bits: 4294967295
   m_AttachTransform: {fileID: 0}
   m_KeepSelectedTargetValid: 1
   m_DisableVisualsWhenBlockedInGroup: 1
@@ -2118,7 +2133,7 @@ Transform:
   m_GameObject: {fileID: 6991865088608147758}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.03, y: 0.26, z: -1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2381,7 +2396,7 @@ MonoBehaviour:
   m_UpdateTrackingType: 0
   m_EnableInputTracking: 1
   m_EnableInputActions: 1
-  m_ModelPrefab: {fileID: -8679921383154817045, guid: 4014030b414404940ad3e4ac48648325,
+  m_ModelPrefab: {fileID: 3948521020005135275, guid: 38007cf015f889f4eb938df764b74e1f,
     type: 3}
   m_ModelParent: {fileID: 0}
   m_Model: {fileID: 0}
