@@ -6,6 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName ="QandA",menuName ="QandA")]
 public class CauHoiScripable : ScriptableObject
 {
+    [TextArea(6,6)]
     public string TextQuestion;
     public List<string> TextListAnswer;
     public int correctAnwer;

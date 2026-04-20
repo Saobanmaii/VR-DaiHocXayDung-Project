@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12d719606d7937c4b9683265c0dd0c0c, type: 3}
+  m_Name: CauhoiXutHo
+  m_EditorClassIdentifier: 
+  TextQuestion: "Kho\u1EA3ng c\xE1ch t\u1EADp k\u1EBFt v\u1EADt li\u1EC7u n\xE0y
+    ti\u1EC1m \u1EA9n r\u1EE7i ro g\xEC?"
+  TextListAnswer:
+  - "[A] S\u1EA1t l\u1EDF h\u1ED1 \u0111\xE0o v\xE0 r\u01A1i v\u1EADt t\u01B0 tr\xFAng
+    ng\u01B0\u1EDDi b\xEAn d\u01B0\u1EDBi."
+  - "[B] L\xE0m han g\u1EC9 v\u1EADt t\u01B0 do g\u1EA7n ngu\u1ED3n n\u01B0\u1EDBc
+    ng\u1EA7m."
+  - "[C] C\xF4ng nh\xE2n d\u1EC5 b\u1ECB v\u1EA5p ng\xE3 khi \u0111i ngang qua."
+  correctAnwer: 0

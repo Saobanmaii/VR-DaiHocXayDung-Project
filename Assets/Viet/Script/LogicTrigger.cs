@@ -65,6 +65,7 @@ public class LogicTrigger : MonoBehaviour
             Debug.Log("Thanhf công qua cửa");
             ThanhCongVaoCua=true;
             OpenTheGateController.instance.OpenTheDoor();
+            BlockPlayerController.instance.SetUnBlockBoxCollider();
         }
     }
 
