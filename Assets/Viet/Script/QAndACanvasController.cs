@@ -12,6 +12,7 @@ public class QAndACanvasController : MonoBehaviour
 
     [SerializeField] Sprite spriteWrongAnswer;
     [SerializeField] Sprite spriteCorrectAnswer;
+    [SerializeField] Canvas canvasDapAnSai;
 
     [SerializeField] Canvas canvasGiaiThich;
     // Biến khóa nút: Ngăn người chơi bấm lung tung khi đang chạy hiệu ứng
@@ -73,7 +74,8 @@ public class QAndACanvasController : MonoBehaviour
 
         
         Debug.Log("===> [SỰ KIỆN]: Đã xong hiệu ứng SAI. Hãy trừ điểm hoặc hiện bảng Game Over tại đây!");
-        
+        canvasDapAnSai.gameObject.SetActive(true);
+        gameObject.SetActive(false);
         isAnimating = false; 
     }
 
@@ -96,8 +98,8 @@ public class QAndACanvasController : MonoBehaviour
         targetImage.sprite = spriteCorrectAnswer;
 
         
-        Debug.Log(" câu hỏi tiếp theo hoặc cộng diemể tai đay!");
-
+        Debug.Log(" câu hỏi tiếp theo hoặc cộng diemể tai đay!, âm thanh cộng điểm");
+        CheckPointController.instance.AddPoint();
         isAnimating = false; 
         canvasGiaiThich.gameObject.SetActive(true);
         gameObject.SetActive(false);
