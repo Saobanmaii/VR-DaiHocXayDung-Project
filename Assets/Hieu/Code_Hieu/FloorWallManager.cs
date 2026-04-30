@@ -11,13 +11,16 @@ public class FloorWallManager : MonoBehaviour
     // Đã lưu sẵn ID của layer "Ignore Raycast" để code chạy nhanh hơn
     private int ignoreRaycastLayer;
 
+    // THÊM: Biến kiểm tra trạng thái hiện tại (mặc định ban đầu là tường đục -> false)
+    private bool isTransparent = false;
+
     // Nâng cấp cấu trúc lưu trữ: Thêm biến lưu Layer gốc
     private class WallData
     {
-        public GameObject wallObject; // Cần giữ GameObject để đổi Layer
+        public GameObject wallObject;
         public Renderer renderer;
         public Material[] originalMaterials;
-        public int originalLayer;     // Lưu Layer lúc ban đầu
+        public int originalLayer;
     }
 
     void Start()
@@ -42,33 +45,40 @@ public class FloorWallManager : MonoBehaviour
         }
     }
 
-    public void SetAllOpaque()
+    // HÀM MỚI: Dùng cho 1 nút bấm duy nhất (Toggle)
+    public void ToggleWallState()
     {
-        foreach (var wall in wallList)
-        {
-            // 1. Trả lại vật liệu
-            wall.renderer.materials = wall.originalMaterials;
-            // 2. Trả lại Layer gốc để tia Ray có thể chạm vào lại
-            wall.wallObject.layer = wall.originalLayer;
-        }
-        Debug.Log("Đã làm ĐỤC và BẬT TƯƠNG TÁC tất cả tường tầng: " + floorTag);
-    }
+        // Đảo ngược trạng thái hiện tại (Đục -> Trong, Trong -> Đục)
+        isTransparent = !isTransparent;
 
-    public void SetAllTransparent()
-    {
-        foreach (var wall in wallList)
+        if (isTransparent)
         {
-            // 1. Đổi sang kính
-            Material[] transMats = new Material[wall.originalMaterials.Length];
-            for (int i = 0; i < transMats.Length; i++)
+            // --- XỬ LÝ LÀM TRONG TƯỜNG ---
+            foreach (var wall in wallList)
             {
-                transMats[i] = transparentMaterial;
-            }
-            wall.renderer.materials = transMats;
+                Material[] transMats = new Material[wall.originalMaterials.Length];
+                for (int i = 0; i < transMats.Length; i++)
+                {
+                    transMats[i] = transparentMaterial;
+                }
+                wall.renderer.materials = transMats;
 
-            // 2. Ép sang layer Ignore Raycast để tia Ray xuyên qua
-            wall.wallObject.layer = ignoreRaycastLayer;
+                // Ép sang layer Ignore Raycast để tia Ray xuyên qua
+                wall.wallObject.layer = ignoreRaycastLayer;
+            }
+            Debug.Log("Đã làm TRONG và XUYÊN THẤU tất cả tường tầng: " + floorTag);
         }
-        Debug.Log("Đã làm TRONG và XUYÊN THẤU tất cả tường tầng: " + floorTag);
+        else
+        {
+            // --- XỬ LÝ LÀM ĐỤC TƯỜNG ---
+            foreach (var wall in wallList)
+            {
+                // Trả lại vật liệu
+                wall.renderer.materials = wall.originalMaterials;
+                // Trả lại Layer gốc để tia Ray có thể chạm vào lại
+                wall.wallObject.layer = wall.originalLayer;
+            }
+            Debug.Log("Đã làm ĐỤC và BẬT TƯƠNG TÁC tất cả tường tầng: " + floorTag);
+        }
     }
 }
