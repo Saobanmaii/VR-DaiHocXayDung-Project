@@ -8,18 +8,24 @@ public class OpenTheGateController : MonoBehaviour
 {
     public static OpenTheGateController instance;
 
-
-
     [Header("Gán cổng 1 vào đây")]
     [SerializeField] GameObject Cong1;
     [Header("Gán cổng 2 vào đây")]
     [SerializeField] GameObject Cong2;
 
-    // Update is called once per frame
-    void Awake() => instance=this;
+    void Awake() => instance = this;
     
     public void OpenTheDoor()
     {
+       
+        Vector3 centerPosition = (Cong1.transform.position + Cong2.transform.position) / 2f;
+        
+      
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlaySound3D(SoundType.GateOpen, centerPosition);
+        }
+
         Cong1.transform.DOLocalRotate(new Vector3(-90  ,0,162),1f,RotateMode.Fast).SetEase(Ease.InOutSine);
         Cong2.transform.DOLocalRotate(new Vector3(-90  ,0,-162),1f,RotateMode.Fast).SetEase(Ease.InOutSine);
     }

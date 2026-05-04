@@ -1,4 +1,3 @@
-
 using System.Collections.Generic;
 using System.Text;
 using DG.Tweening;
@@ -8,18 +7,18 @@ using UnityEngine.UI;
 public class LogicTrigger : MonoBehaviour
 {
     public static LogicTrigger instance;
-    public bool ThanhCongVaoCua=false;
-    public bool check{get; private set;} 
+    public bool ThanhCongVaoCua = false;
+    public bool check { get; private set; } 
 
     [Header("Gán các toggle vào đây")]
     [SerializeField] private List<Toggle> listToggle = new List<Toggle>();
 
     [Header("Gán các Canvas ở cổng vào đây")]
-    [SerializeField] private List<GameObject> listCanvas= new List<GameObject>();
+    [SerializeField] private List<GameObject> listCanvas = new List<GameObject>();
 
     public void Awake()
     {
-        instance=this;
+        instance = this;
     }
 
     void Start()
@@ -29,12 +28,11 @@ public class LogicTrigger : MonoBehaviour
 
     public void checkLogic()
     {
-        StringBuilder strb= new StringBuilder();
+        StringBuilder strb = new StringBuilder();
         if (!listToggle[0].isOn)
         {
             strb.AppendLine("Bạn quên chưa đội mũ");
             Debug.LogWarning("chưa đội mũ");
-            
         }
         if (!listToggle[1].isOn)
         {
@@ -47,23 +45,30 @@ public class LogicTrigger : MonoBehaviour
             Debug.LogWarning("chưa mặc giày");
         }
 
-
         AnCanvasTrangBi(); // an canvas trang bi
-        if (strb.Length>0)
+        
+        if (strb.Length > 0)
         {
-           
             listCanvas[2].SetActive(true);
+            
+            // ĐÃ HOÀN THIỆN: Gọi âm thanh cảnh báo thiếu đồ (phát 2D, tự động tắt khi hết clip)
+            AudioManager.Instance.PlaySound2D(SoundType.WarningNoPPE); 
+            
             listCanvas[2].GetComponent<CanVasBaoCaoController>().SetUPTextWarning(strb.ToString());
         }
         else
         {
             strb.AppendLine("Đã trang bị đầy đủ, có thể vào giám sát công trình");
-           
+            
             listCanvas[3].SetActive(true);
             listCanvas[3].GetComponent<CanVasBaoCaoController>().SetUPTextWarning(strb.ToString());
-            check=true;
-            Debug.Log("Thanhf công qua cửa");
-            ThanhCongVaoCua=true;
+            check = true;
+            Debug.Log("Thành công qua cửa");
+            ThanhCongVaoCua = true;
+
+            // ĐỀ XUẤT THÊM: Phát âm thanh báo hiệu kiểm tra thành công (Ví dụ tiếng Ting Ting)
+            AudioManager.Instance.PlaySound2D(SoundType.UI_Correct);
+
             OpenTheGateController.instance.OpenTheDoor();
             BlockPlayerController.instance.SetUnBlockBoxCollider();
             BlockRayCastController.setBlockUnBlock(true);
@@ -74,26 +79,22 @@ public class LogicTrigger : MonoBehaviour
     {
         listCanvas[3].SetActive(false);
     }
+    
     public void HienThiCanvasTrangBi(int idx)
     {
         SetActiveCanvasFalse();
         listCanvas[idx].SetActive(true);
-       
-
     }
 
     public void AnCanvasTrangBi()
     {
         SetActiveCanvasFalse();
-
-        
-
     }
+    
     private void SetActiveCanvasFalse()
     {
         for (int i = 0; i < listCanvas.Count; i++)
         {
-
             listCanvas[i].SetActive(false);
         }
     }

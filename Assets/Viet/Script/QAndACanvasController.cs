@@ -29,10 +29,8 @@ public class QAndACanvasController : MonoBehaviour
 
     public void AnswerIndex(int idx)
     {
-        
         if (isAnimating) return;
 
-        
         Image clickedButtonImage = textAnswer[idx].GetComponentInParent<Image>();
         if (clickedButtonImage == null)
         {
@@ -40,20 +38,30 @@ public class QAndACanvasController : MonoBehaviour
             return;
         }
 
-        
         if (idx != cauHoiScripable.correctAnwer)
         {
             Debug.Log("Trả lời đáp án sai");
             StartCoroutine(StartAnimWrongAnswer(clickedButtonImage));
+            
+            // ĐÃ THÊM: Âm thanh trả lời sai (Phát 2D, tự động tắt)
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.PlaySound2D(SoundType.UI_Wrong);
+            }
         }
         else
         {
+            // ĐÃ THÊM: Âm thanh trả lời đúng (Phát 2D, tự động tắt)
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.PlaySound2D(SoundType.UI_Correct);
+            }
+            
             Debug.Log("Trả lời đáp án đúng");
             StartCoroutine(StartAnimCorrectAnswer(clickedButtonImage));
         }
     }
 
-    
     IEnumerator StartAnimWrongAnswer(Image targetImage)
     {
         isAnimating = true; 
@@ -69,10 +77,8 @@ public class QAndACanvasController : MonoBehaviour
             yield return new WaitForSeconds(0.25f); 
         }
 
-        
         targetImage.sprite = spriteWrongAnswer;
 
-        
         Debug.Log("===> [SỰ KIỆN]: Đã xong hiệu ứng SAI. Hãy trừ điểm hoặc hiện bảng Game Over tại đây!");
         canvasDapAnSai.gameObject.SetActive(true);
         gameObject.SetActive(false);
@@ -84,7 +90,6 @@ public class QAndACanvasController : MonoBehaviour
         isAnimating = true; // Bắt đầu khóa input
         Sprite originalSprite = targetImage.sprite; 
         
-        
         for (int i = 0; i < 4; i++)
         {
             targetImage.sprite = spriteCorrectAnswer;
@@ -94,11 +99,11 @@ public class QAndACanvasController : MonoBehaviour
             yield return new WaitForSeconds(0.25f);
         }
 
-       
         targetImage.sprite = spriteCorrectAnswer;
 
-        
         Debug.Log(" câu hỏi tiếp theo hoặc cộng diemể tai đay!, âm thanh cộng điểm");
+        
+       
         CheckPointController.instance.AddPoint();
         isAnimating = false; 
         canvasGiaiThich.gameObject.SetActive(true);

@@ -6,6 +6,7 @@ public class BlockPlayerController : MonoBehaviour
 {
     public BoxCollider boxCollider;
     public static BlockPlayerController instance;
+    [SerializeField] List<GameObject> blockPlayer; // Đối tượng dùng để chặn player
 
 
     void Awake()
@@ -20,7 +21,11 @@ public class BlockPlayerController : MonoBehaviour
 
     public void SetUnBlockBoxCollider()
     {
-        boxCollider.enabled=false;
+        foreach (GameObject block in blockPlayer)
+        {
+            block.SetActive(false);
+        }
+        boxCollider.gameObject.SetActive(false);
     }
 
 

@@ -25,6 +25,9 @@ public class CanhBaoCuaController : MonoBehaviour
     private Vignette vignetteEffect;
     private Tween vignetteTween;
 
+    // Biến lưu trữ âm thanh để có thể tắt đi khi ra khỏi cửa
+    private AudioSource warningAudioSource;
+
     void Awake()
     {
         if (canvasKhoangCach != null) originalScaleKhoangCach = canvasKhoangCach.transform.localScale;
@@ -45,16 +48,18 @@ public class CanhBaoCuaController : MonoBehaviour
     // Khi có một object chạm vào vùng trigger của cửa
     private void OnTriggerEnter(Collider other)
     {
-        // Kiểm tra xem object chạm vào có Tag là "Player" hay không
+       
         if (other.CompareTag("Player"))
         {
-            // Lấy instance từ LogicTrigger để kiểm tra trạng thái mặc đồ
+         
             if (LogicTrigger.instance != null)
             {
                 // Nếu chưa mặc đủ đồ (ThanhCongVaoCua == false) thì bật cảnh báo
                 if (!LogicTrigger.instance.ThanhCongVaoCua && !isWarningActive)
                 {
                     ShowWarning();
+                    // LƯU LẠI âm thanh đang phát vào biến warningAudioSource
+                    warningAudioSource = AudioManager.Instance.PlaySound2D(SoundType.WarningErr);
                 }
             }
             else
@@ -118,6 +123,12 @@ public class CanhBaoCuaController : MonoBehaviour
     {
         isWarningActive = false;
 
+        // TẮT ÂM THANH KHI ĐI RA KHỎI CỬA
+        if (warningAudioSource != null)
+        {
+            AudioManager.Instance.StopSound(warningAudioSource);
+        }
+
         if (warningSequence != null && warningSequence.IsActive())
         {
             warningSequence.Kill();
@@ -157,5 +168,11 @@ public class CanhBaoCuaController : MonoBehaviour
     {
         if (warningSequence != null) warningSequence.Kill();
         if (vignetteTween != null) vignetteTween.Kill();
+        
+        // Đảm bảo tắt âm thanh nếu object chứa script này bị xóa đột ngột
+        if (warningAudioSource != null) 
+        {
+            AudioManager.Instance.StopSound(warningAudioSource);
+        }
     }
 }
