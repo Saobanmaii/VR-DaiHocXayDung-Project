@@ -1,14 +1,14 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections.Generic;
-using System.IO;
+// Đã xóa dòng using System.IO; vì không cần mò mẫm đường dẫn ổ cứng nữa
 using Newtonsoft.Json;
 
 public class BIMDatabase : MonoBehaviour
 {
     public static Dictionary<string, BIMData> Data;
 
-    [Header("Path to mep_data.json")]
-    public string jsonPath = "Assets/Hieu/Code_BIM/mep_data.json";
+    [Header("Kéo file mep_data.json vào đây")]
+    public TextAsset jsonFile; // <-- CÚ LỘT XÁC Ở ĐÂY
 
     void Awake()
     {
@@ -17,16 +17,18 @@ public class BIMDatabase : MonoBehaviour
 
     void Load()
     {
-        if (!File.Exists(jsonPath))
+        // Kiểm tra xem a đã kéo thả file vào chưa
+        if (jsonFile == null)
         {
-            Debug.LogError("JSON not found: " + jsonPath);
+            Debug.LogError("LỖI CHÍ MẠNG: A chưa kéo file JSON vào cục BIMDatabase ở ngoài Inspector!");
             return;
         }
 
-        string json = File.ReadAllText(jsonPath);
+        // Rút ruột nội dung JSON từ cục TextAsset (bao sống trên mọi nền tảng kể cả kính VR)
+        string json = jsonFile.text;
         Data = JsonConvert.DeserializeObject<Dictionary<string, BIMData>>(json);
 
-        Debug.Log("Loaded BIM data: " + Data.Count);
+        Debug.Log("Loaded BIM data thành công: " + Data.Count + " cấu kiện!");
     }
 
     public static BIMData Get(string guid)
