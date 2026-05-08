@@ -9,8 +9,11 @@ public class GlobalSocketHighlighter : MonoBehaviour
 
    public void HighlightSockets()
     {
+
+        
         foreach (GameObject socket in socketsHightLighted)
         {
+            
             if(socket.activeSelf) continue; 
             socket.SetActive(true);
         }

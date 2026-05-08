@@ -21,7 +21,7 @@ TagManager:
   - StaticItem
   - Teleport
   - Cone
-  - 
+  - TeleportRectacle
   - 
   - 
   - 
@@ -42,4 +42,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: ui
+    uniqueID: 385332211
     locked: 0

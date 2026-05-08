@@ -156,12 +156,24 @@ public class UICanhBaoController : MonoBehaviour
             if (uiCanhBaoDo1) uiCanhBaoDo1.SetActive(true);
             if (uiCanhBaoDo2) uiCanhBaoDo2.SetActive(true);
             seqDo.Restart();
+
+            // ---> ĐÃ THÊM: BẬT ÂM THANH KHI VÀO VÙNG ĐỎ <---
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.TurnOnWarning();
+            }
         }
         else
         {
             if (uiCanhBaoDo1) { uiCanhBaoDo1.SetActive(false); uiCanhBaoDo1.transform.localScale = origDo1; }
             if (uiCanhBaoDo2) { uiCanhBaoDo2.SetActive(false); uiCanhBaoDo2.transform.localScale = origDo2; }
             seqDo.Pause();
+
+            // ---> ĐÃ THÊM: TẮT ÂM THANH KHI THOÁT KHỎI VÙNG ĐỎ <---
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.TurnOffWarning();
+            }
         }
     }
 
