@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class CheckPointController : MonoBehaviour
 {
     public static CheckPointController instance;
+    [SerializeField] GameObject canvasFishid;
 
     [SerializeField] TextMeshProUGUI _text;
     public int _point = 0;
@@ -24,7 +25,7 @@ public class CheckPointController : MonoBehaviour
 
     void Start()
     {
-       
+        canvasFishid.SetActive(false);
         setUpPoint(); 
     }
 
@@ -60,6 +61,7 @@ public class CheckPointController : MonoBehaviour
         if(_point == totalPoint)
         {
             Debug.Log("SangUI hoan thanhf");
+            canvasFishid.SetActive(true);
         }
     }
 }

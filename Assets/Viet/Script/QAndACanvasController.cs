@@ -17,9 +17,42 @@ public class QAndACanvasController : MonoBehaviour
     [SerializeField] Canvas canvasGiaiThich;
     // Biến khóa nút: Ngăn người chơi bấm lung tung khi đang chạy hiệu ứng
     private bool isAnimating = false;
+    
+    
+    [SerializeField] List<GameObject> UINotAnswer;
+    [SerializeField] List<GameObject> UIAnswer;
+    public int indexUIMap=0;
+    #if UNITY_EDITOR
+    private void OnValidate()
+    {
+        
+        if (UINotAnswer != null)
+        {
+            for (int i = 0; i < UINotAnswer.Count; i++)
+            {
+               
+                if (UINotAnswer[i] != null) 
+                {
+                    UINotAnswer[i].SetActive(true);
+                }
+            }
+        }
 
+        if (UIAnswer != null)
+        {
+            for (int i = 0; i < UIAnswer.Count; i++)
+            {
+                if (UIAnswer[i] != null) 
+                {
+                    UIAnswer[i].SetActive(false);
+                }
+            }
+        }
+    }
+#endif
     void Start()
     {
+        
         textQ.text = cauHoiScripable.TextQuestion;
         for (int i = 0; i < cauHoiScripable.TextListAnswer.Count; i++)
         {
@@ -87,6 +120,8 @@ public class QAndACanvasController : MonoBehaviour
 
     IEnumerator StartAnimCorrectAnswer(Image targetImage)
     {
+        UIAnswer[indexUIMap].SetActive(true);
+        UINotAnswer[indexUIMap].SetActive(false);
         isAnimating = true; // Bắt đầu khóa input
         Sprite originalSprite = targetImage.sprite; 
         
@@ -108,5 +143,7 @@ public class QAndACanvasController : MonoBehaviour
         isAnimating = false; 
         canvasGiaiThich.gameObject.SetActive(true);
         gameObject.SetActive(false);
+
+
     }
 }
