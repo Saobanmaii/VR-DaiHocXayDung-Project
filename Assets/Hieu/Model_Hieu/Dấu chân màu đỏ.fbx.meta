@@ -1,54 +1,14 @@
 fileFormatVersion: 2
-guid: 13a428469c531a242873a251ab7b9bd9
+guid: 386dd1be5db61224ebca582fb57f1c2c
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Ch17_body
-    second: {fileID: 2100000, guid: 5e88f1a4d0b077245ac8cdf9fe1d24ef, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Ch17_hair
-    second: {fileID: 2100000, guid: 14664204cec5ccf46a459a9905c83242, type: 2}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Ch17_1001_Diffuse
-    second: {fileID: 2800000, guid: 5cd1bef333900654c859e49ab909e8b0, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Ch17_1001_Glossiness
-    second: {fileID: 2800000, guid: 8bca2632ed981304aaeea0bdc4486e6e, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Ch17_1001_Normal
-    second: {fileID: 2800000, guid: 1915b973522c8de4781c517e333d03bd, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Ch17_1001_Specular
-    second: {fileID: 2800000, guid: c9f7e7000c474194e8da021d1a589df6, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Ch17_1002_Diffuse
-    second: {fileID: 2800000, guid: 72da5b2c82c0fd94e9e2f7f5fe033b06, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Ch17_1002_Normal
-    second: {fileID: 2800000, guid: ea5311b158ec0ba4487b4fdbfac82bc0, type: 3}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -75,7 +35,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0.2
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -117,9 +77,7 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips:
-  - 8ef3b7647187ecd4db5eb1bfea910002
-  - 76af36d6bbb0d1a409464f2ff15218eb
+  referencedClips: []
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
@@ -132,7 +90,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
+    globalScale: 0.002
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
