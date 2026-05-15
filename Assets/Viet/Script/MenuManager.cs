@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour
 {
     [Header("Cài đặt Scene")]
-    [Tooltip("Nhập tên Scene Trang chủ của bạn vào đây (ví dụ: MainMenuScene)")]
+    [Tooltip("Nhập tên Scene Trang chủ")]
     [SerializeField] private string homeSceneName;
 
 
@@ -37,7 +37,7 @@ public class MenuManager : MonoBehaviour
         
         Application.Quit();
 
-        // Dừng chế độ Play khi đang chạy test trong Unity Editor
+      
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #endif
