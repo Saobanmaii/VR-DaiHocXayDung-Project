@@ -24,6 +24,7 @@ public class LogicTrigger : MonoBehaviour
     void Start()
     {
         SetActiveCanvasFalse();
+        listCanvas[0].SetActive(true);
     }
 
     public void checkLogic()

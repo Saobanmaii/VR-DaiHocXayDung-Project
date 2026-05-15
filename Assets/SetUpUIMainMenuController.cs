@@ -1,14 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem; 
+using UnityEngine.InputSystem;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class SetUpUIMainMenuController : MonoBehaviour
 {
     [SerializeField] GameObject mainMenu;
-    
-   
     [SerializeField] InputActionReference holdAction; 
+    public XRRayInteractor rayInteractor;
 
     void Start()
     {
@@ -18,14 +18,12 @@ public class SetUpUIMainMenuController : MonoBehaviour
         }
     }
 
-   
     void Update()
     {
-        
-        if (holdAction != null && holdAction.action != null)
+        if (holdAction != null && holdAction.action != null && rayInteractor != null)
         {
             
-            if (holdAction.action.IsPressed())
+            if (holdAction.action.IsPressed() && !rayInteractor.isActiveAndEnabled)
             {
                 mainMenu.SetActive(true);
             }
