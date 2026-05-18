@@ -8,7 +8,9 @@ public class CauHoiScripable : ScriptableObject
 {
     [TextArea(6,6)]
     public string TextQuestion;
+    public string TextQuestion_EN;
     [TextArea(6,6)]
     public List<string> TextListAnswer;
+    public List<string> TextListAnswer_EN;
     public int correctAnwer;
 }

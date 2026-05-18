@@ -14,9 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TextQuestion: "V\u1ECB tr\xED n\xE0y \u0111ang vi ph\u1EA1m quy t\u1EAFc an to\xE0n
     c\u1ED1t l\xF5i n\xE0o?"
+  TextQuestion_EN: Which core safety rule is being violated at this location?
   TextListAnswer:
   - "[A] C\u1EA3n tr\u1EDF l\u1ED1i \u0111i l\u1EA1i c\u1EE7a thi\u1EBFt b\u1ECB
     thi c\xF4ng"
   - "[B] Thi\u1EBFu lan can an to\xE0n c\u1EE9ng cao t\u1ED1i thi\u1EC3u 1m."
   - "[C] Kh\xF4ng c\xF3 l\u01B0\u1EDBi bao che ch\u1ED1ng b\u1EE5i."
+  TextListAnswer_EN:
+  - ' [A] Obstructing the passage of construction equipment'
+  - ' [B] Lack of a rigid safety railing at least 1m high.'
+  - ' [C] No dust cover mesh.'
   correctAnwer: 1

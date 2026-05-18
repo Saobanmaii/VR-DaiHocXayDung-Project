@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TextQuestion: "C\xE1ch x\u1EED l\xFD an to\xE0n nh\u1EA5t cho tuy\u1EBFn c\xE1p
     \u0111i\u1EC7n n\xE0y l\xE0 g\xEC?"
+  TextQuestion_EN: What is the safest way to handle this power cable?
   TextListAnswer:
   - "[A] B\xE1o k\u1EF9 thu\u1EADt \u0111i\u1EC7n ng\u1EAFt ngu\u1ED3n c\u1EA5p,
     b\u1ECDc c\xE1ch \u0111i\u1EC7n v\xE0 treo c\xE1p l\xEAn c\u1ED9t cao. "
@@ -21,4 +22,9 @@ MonoBehaviour:
     v\u0169ng n\u01B0\u1EDBc."
   - "[C] \u0110\u1EB7t m\u1ED9t t\u1EA5m v\xE1n g\u1ED7 l\xEAn v\u0169ng n\u01B0\u1EDBc
     \u0111\u1EC3 b\u01B0\u1EDBc qua."
+  TextListAnswer_EN:
+  - '[A] The electrical technician disconnects the power supply, insulates the cable,
+    and hangs it on a high pole.'
+  - '[B] Use a long wooden stick to pull the cable reel out of the puddle of water.'
+  - '[C] Place a wooden plank over the puddle to step over.'
   correctAnwer: 0

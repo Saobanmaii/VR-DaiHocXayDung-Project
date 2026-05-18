@@ -50,12 +50,35 @@ public class QAndACanvasController : MonoBehaviour
     }
 #endif
 
-    void Start()
+    // Dùng OnEnable thay vì Start để mỗi khi bật Canvas này lên nó sẽ cập nhật đúng ngôn ngữ
+    void OnEnable()
     {
-        textQ.text = cauHoiScripable.TextQuestion;
-        for (int i = 0; i < cauHoiScripable.TextListAnswer.Count; i++)
+        UpdateLanguage();
+    }
+
+    // Hàm cập nhật ngôn ngữ cho câu hỏi và đáp án
+    public void UpdateLanguage()
+    {
+        // Kiểm tra xem hiện tại đang chọn tiếng Việt hay tiếng Anh
+        bool isVN = LanguageController.instance != null ? LanguageController.instance.switchVN : true;
+
+        if (isVN)
         {
-            textAnswer[i].text = cauHoiScripable.TextListAnswer[i];
+            textQ.text = cauHoiScripable.TextQuestion;
+            for (int i = 0; i < cauHoiScripable.TextListAnswer.Count; i++)
+            {
+                if (i < textAnswer.Count)
+                    textAnswer[i].text = cauHoiScripable.TextListAnswer[i];
+            }
+        }
+        else
+        {
+            textQ.text = cauHoiScripable.TextQuestion_EN;
+            for (int i = 0; i < cauHoiScripable.TextListAnswer_EN.Count; i++)
+            {
+                if (i < textAnswer.Count)
+                    textAnswer[i].text = cauHoiScripable.TextListAnswer_EN[i];
+            }
         }
     }
 
@@ -75,7 +98,6 @@ public class QAndACanvasController : MonoBehaviour
             Debug.Log("Trả lời đáp án sai");
             StartCoroutine(StartAnimWrongAnswer(clickedButtonImage));
             
-            // Âm thanh trả lời sai (Phát 2D, tự động tắt)
             if (AudioManager.Instance != null)
             {
                 AudioManager.Instance.PlaySound2D(SoundType.UI_Wrong);
@@ -83,7 +105,6 @@ public class QAndACanvasController : MonoBehaviour
         }
         else
         {
-            // Âm thanh trả lời đúng (Phát 2D, tự động tắt)
             if (AudioManager.Instance != null)
             {
                 AudioManager.Instance.PlaySound2D(SoundType.UI_Correct);
@@ -98,15 +119,11 @@ public class QAndACanvasController : MonoBehaviour
     {
         isAnimating = true; 
         
-        // Chỉ đổi Sprite sang màu sai 1 lần duy nhất, bỏ vòng lặp nhấp nháy
         targetImage.sprite = spriteWrongAnswer;
 
-        // Đợi 0.5s để người chơi kịp nhìn thấy hình ảnh đáp án sai và nghe âm thanh
         yield return new WaitForSeconds(0.5f); 
-        targetImage.sprite = _default; // Trả về sprite gốc sau khi đã hiển thị sai
+        targetImage.sprite = _default; 
         Debug.Log("===> [SỰ KIỆN]: Đã xong hiệu ứng SAI. Hãy trừ điểm hoặc hiện bảng Game Over tại đây!");
-        // canvasDapAnSai.gameObject.SetActive(true);
-        // gameObject.SetActive(false);
         
         isAnimating = false; 
     }
@@ -115,23 +132,21 @@ public class QAndACanvasController : MonoBehaviour
     {
         UIAnswer[indexUIMap].SetActive(true);
         UINotAnswer[indexUIMap].SetActive(false);
-        isAnimating = true; // Bắt đầu khóa input
+        isAnimating = true; 
         
-        // CẬP NHẬT: Đổi Sprite sang màu đúng 1 lần duy nhất
         targetImage.sprite = spriteCorrectAnswer;
 
-        // CẬP NHẬT: Đợi 0.5s để đồng bộ với âm thanh và cho người chơi kịp nhìn
         yield return new WaitForSeconds(0.5f);
 
         Debug.Log(" Câu hỏi tiếp theo hoặc cộng điểm tại đây!, âm thanh cộng điểm");
         
-        CheckPointController.instance.AddPoint();
+        if(CheckPointController.instance != null)
+            CheckPointController.instance.AddPoint();
         
-        // Trả về sprite gốc nếu sau này object này được bật lại dùng cho câu khác
         targetImage.sprite = _default; 
         
         isAnimating = false; 
-        canvasGiaiThich.gameObject.SetActive(true);
+        if(canvasGiaiThich != null) canvasGiaiThich.gameObject.SetActive(true);
         gameObject.SetActive(false);
     }
 }

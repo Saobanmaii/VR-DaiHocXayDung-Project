@@ -30,24 +30,30 @@ public class LogicTrigger : MonoBehaviour
     public void checkLogic()
     {
         StringBuilder strb = new StringBuilder();
+        
+        // Lấy trạng thái ngôn ngữ hiện tại
+        bool isVN = LanguageController.instance.switchVN; 
+
+        // Kiểm tra từng món đồ và nối chuỗi tương ứng với ngôn ngữ
         if (!listToggle[0].isOn)
         {
-            strb.AppendLine("Bạn quên chưa đội mũ");
+            strb.AppendLine(isVN ? LanguageController.instance.warningNoPPE_VN_Hat : LanguageController.instance.warningNoPPE_EN_Hat);
             Debug.LogWarning("chưa đội mũ");
         }
         if (!listToggle[1].isOn)
         {
-            strb.AppendLine("Bạn chưa mặc áo");
+            strb.AppendLine(isVN ? LanguageController.instance.warningNoPPE_VN_Clothes : LanguageController.instance.warningNoPPE_EN_Clothes);
             Debug.LogWarning("chưa mặc áo");
         }
         if (!listToggle[2].isOn)
         {
-            strb.AppendLine("Bạn chưa mặc giày");
+            strb.AppendLine(isVN ? LanguageController.instance.warningNoPPE_VN_Shoes : LanguageController.instance.warningNoPPE_EN_Shoes);
             Debug.LogWarning("chưa mặc giày");
         }
 
         AnCanvasTrangBi(); // an canvas trang bi
         
+        // Nếu StringBuilder có dữ liệu -> Thiếu đồ
         if (strb.Length > 0)
         {
             listCanvas[2].SetActive(true);
@@ -57,9 +63,10 @@ public class LogicTrigger : MonoBehaviour
             
             listCanvas[2].GetComponent<CanVasBaoCaoController>().SetUPTextWarning(strb.ToString());
         }
-        else
+        else // Đã đủ đồ
         {
-            strb.AppendLine("Đã trang bị đầy đủ, có thể vào giám sát công trình");
+            // Lấy câu thông báo thành công theo ngôn ngữ
+            strb.AppendLine(isVN ? LanguageController.instance.successEnter_VN : LanguageController.instance.successEnter_EN);
             
             listCanvas[3].SetActive(true);
             listCanvas[3].GetComponent<CanVasBaoCaoController>().SetUPTextWarning(strb.ToString());

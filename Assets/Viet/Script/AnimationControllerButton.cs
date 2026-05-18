@@ -17,7 +17,7 @@ public class AnimationControllerButton : MonoBehaviour
     [SerializeField] List<AnimationControllerButton> buttonOrther;
     [SerializeField]  List<GameObject>maps; // 1 map, 2 setting, 3 main menu
     [SerializeField] List<String> stringsMaps; // 1 map, 2 setting, 3 main menu
-    public TextMeshProUGUI textMap;
+    // public TextMeshProUGUI textMap;
     public RoleButton roleButton;
     public Color colorSelect;
     public Color colorDefault;
@@ -111,18 +111,19 @@ public class AnimationControllerButton : MonoBehaviour
 
     private void AdjustTextMainMenu()
     {
-        switch (roleButton)
-        {
-            case RoleButton.Map:
-                textMap.text = stringsMaps[0];
-                break;
-            case RoleButton.Setting:
-                textMap.text = stringsMaps[1];
-                break;
-            case RoleButton.MainMenu:
-                textMap.text = stringsMaps[2];
-                break;
-        }
+        // if(textMap == null) return;
+        // switch (roleButton)
+        // {
+        //     case RoleButton.Map:
+        //         textMap.text = stringsMaps[0];
+        //         break;
+        //     case RoleButton.Setting:
+        //         textMap.text = stringsMaps[1];
+        //         break;
+        //     case RoleButton.MainMenu:
+        //         textMap.text = stringsMaps[2];
+        //         break;
+        // }
     }
 
     public void unhover()
