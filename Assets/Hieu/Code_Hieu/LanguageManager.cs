@@ -8,6 +8,7 @@ public class LanguageManager : MonoBehaviour
 
     [Header("Cài đặt (0 = VN, 1 = EN)")]
     public int currentLanguage = 0;
+    public int tmp;
 
     void Awake()
     {
@@ -51,5 +52,28 @@ public class LanguageManager : MonoBehaviour
         {
             OnLanguageChanged();
         }
+    }
+
+    public void SetVietnameseViet()
+    {
+        tmp = 0;
+        Debug.Log("====> Đã lưu tạm: Tiếng Việt (tmp = 0)");
+    }
+
+    public void SetEnglishViet()
+    {
+        tmp = 1;
+        Debug.Log("====> Đã lưu tạm: Tiếng Anh (tmp = 1)");
+    }
+
+    public void ConfirmLanguage()
+    {
+        currentLanguage = tmp;
+        
+        // Bắt buộc phải có 2 dòng này
+        PlayerPrefs.SetInt("SavedLanguage", currentLanguage);
+        PlayerPrefs.Save();
+        
+        Debug.Log("====> BẤM XÁC NHẬN! Đã chốt ngôn ngữ: " + currentLanguage);
     }
 }

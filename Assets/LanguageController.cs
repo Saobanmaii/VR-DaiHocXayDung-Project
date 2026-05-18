@@ -13,7 +13,7 @@ public class LanguageController : MonoBehaviour
     public bool switchVN = true;
     
 
-    #region hướng dẫn canvas
+#region hướng dẫn canvas
     [Header("hướng dẫn canvas")]
     public TextMeshProUGUI headerHuongDanCanvas;
     public string headerHuongDanCanvas_VN;
@@ -25,7 +25,7 @@ public class LanguageController : MonoBehaviour
     public List<string> languagesHuongDanCanvas_EN = new List<string>();
     #endregion
     
-    #region  vui lòng trang bị canvas
+#region  vui lòng trang bị canvas
     [Space(10)]
 
     [Header("vui long trang bij canvas")]
@@ -217,12 +217,15 @@ public string textElectrickButton_EN;
     void Awake()
     {
         instance = this;
-            
+       
 
     }
     
     void Start()
     {
+       
+        switchVN = LanguageManager.Instance.currentLanguage == 0; // Giả sử 0 là VN, 1 là EN
+        
         SwitchInstructionStart();
         SwithCanvasVuiLongTrangBiCanvas();
         SwitchChuaTrangBiCanvasWarning();
