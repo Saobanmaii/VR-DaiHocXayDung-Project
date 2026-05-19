@@ -124963,22 +124963,22 @@ PrefabInstance:
     - target: {fileID: 6888219725082051844, guid: f2c6918b6a259194489c9e3ae40d40a2,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6888219725082051844, guid: f2c6918b6a259194489c9e3ae40d40a2,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6888219725082051844, guid: f2c6918b6a259194489c9e3ae40d40a2,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.36
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6888219725082051844, guid: f2c6918b6a259194489c9e3ae40d40a2,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.120000005
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6900244133867308621, guid: f2c6918b6a259194489c9e3ae40d40a2,
         type: 3}
@@ -125028,22 +125028,22 @@ PrefabInstance:
     - target: {fileID: 8013946620049323499, guid: f2c6918b6a259194489c9e3ae40d40a2,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8013946620049323499, guid: f2c6918b6a259194489c9e3ae40d40a2,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8013946620049323499, guid: f2c6918b6a259194489c9e3ae40d40a2,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1.5039374
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8013946620049323499, guid: f2c6918b6a259194489c9e3ae40d40a2,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.120000005
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8491412001402913108, guid: f2c6918b6a259194489c9e3ae40d40a2,
         type: 3}
@@ -125181,6 +125181,18 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 634697749}
+    - targetCorrespondingSourceObject: {fileID: 1857574589943848023, guid: f2c6918b6a259194489c9e3ae40d40a2,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1485141014}
+    - targetCorrespondingSourceObject: {fileID: 8662459706463718468, guid: f2c6918b6a259194489c9e3ae40d40a2,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1871001822}
+    - targetCorrespondingSourceObject: {fileID: 139657765935834368, guid: f2c6918b6a259194489c9e3ae40d40a2,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1871001821}
   m_SourcePrefab: {fileID: 100100000, guid: f2c6918b6a259194489c9e3ae40d40a2, type: 3}
 --- !u!1 &634697745 stripped
 GameObject:
@@ -335687,6 +335699,28 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2982533216971229727, guid: 82cfee8d9362bf14381b4e547d0956c4, type: 3}
+--- !u!1 &1485141013 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1857574589943848023, guid: f2c6918b6a259194489c9e3ae40d40a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 634697744}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1485141014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485141013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22f963ac2c8183d4aa44bebc9119c72a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vnText: "Note: n\u1EBFu ch\u1ECDn l\u1EA1i ng\xF4n ng\u1EEF b\u1EA1n s\u1EBD ph\u1EA3i
+    reload l\u1EA1i scene"
+  enText: "\u201CNote: If you change the language again, you will need to reload
+    the scene.\u201D\r\n"
 --- !u!1 &1485148663 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1380172232118321783, guid: 82cfee8d9362bf14381b4e547d0956c4,
@@ -415177,18 +415211,18 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 2
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_PressedColor: {r: 0.23350562, g: 1, b: 0.15566039, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 21300000, guid: f0bb26c98ea10bb46870c47f34666839, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 3ba9981aa31957f4dbb02dbff7d5d9b6, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -418108,6 +418142,46 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   transparentMaterial: {fileID: 2100000, guid: 3f8085c56a24a144ebad0fa0f2081ebe, type: 2}
+--- !u!1 &1871001819 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 139657765935834368, guid: f2c6918b6a259194489c9e3ae40d40a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 634697744}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1871001820 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8662459706463718468, guid: f2c6918b6a259194489c9e3ae40d40a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 634697744}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1871001821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1871001819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22f963ac2c8183d4aa44bebc9119c72a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vnText: "H\u1EE7y b\u1ECF"
+  enText: Cancel
+--- !u!114 &1871001822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1871001820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22f963ac2c8183d4aa44bebc9119c72a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vnText: "X\xE1c nh\u1EADn"
+  enText: Confirm
 --- !u!1 &1871463132 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7796093578125692466, guid: c64695d383dc8f346b1f9733ddcfa539,
